@@ -2,9 +2,14 @@
 safe: true
 lsi: false
 source: .
+baseurl: ''
 
 # GitHub Pages Settings
 highlighter: pygments
 
 # Personal Jekyll Config
 timezone: America/New_York
+paginate: 5
+paginate_path: "/page:num/"
+sass:
+    sass_dir: _sass
