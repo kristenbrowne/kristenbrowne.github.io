@@ -1,0 +1,10 @@
+# GitHub Pages Overrides (not configurable locally)
+safe: true
+lsi: false
+source: .
+
+# GitHub Pages Settings
+highlighter: pygments
+
+# Personal Jekyll Config
+timezone: America/New_York
