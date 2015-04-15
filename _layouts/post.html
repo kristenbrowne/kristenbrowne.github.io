@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<!--
+  Arcana by HTML5 UP
+  html5up.net | @n33co
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    <!-- Header -->
+    {% include header.html %}
+    <!-- Main -->
+
+      <section class="wrapper style1">
+        <div class="container">
+          <div class="row 200%">
+            <div class="4u 12u(narrower)">
+              <div id="sidebar">
+
+                <!-- Sidebar -->
+
+                  <section>
+                    {% for author in site.data.authors %}
+                      {% if page.author == author.user %}
+                      <h3>{{author.name}}</h3>
+                      <p>{{author.about}}</p>
+                      {% endif %}
+                    {% endfor %}
+                    <footer>
+                      <a href="#" class="button">Continue Reading</a>
+                    </footer>
+                  </section>
+
+                  <section>
+                    <h3>Related Posts</h3>
+                    <ul class="links">
+                      {% for post in site.related_posts limit:6 %}
+                        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+                      {% endfor %}
+                    </ul>
+                    <footer>
+                      <a href="#" class="button">More Random Links</a>
+                    </footer>
+                  </section>
+
+              </div>
+            </div>
+            <div class="8u  12u(narrower) important(narrower)">
+              <div id="content">
+
+                <!-- Content -->
+
+                  <article>
+                    <header>
+                      <h2>{{page.title}}</h2>
+                      <p>Sidebar on the left, content on the right.</p>
+                    </header>
+                    {{ content }}
+                  </article>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Footer -->
+    {% include footer.html %}
+
+  </body>
+</html>

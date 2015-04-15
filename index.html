@@ -1,0 +1,61 @@
+---
+layout: default
+title: My Blog
+---
+<!-- Banner -->
+{% if paginator.page == 1 %}
+<section id="banner">
+  <header>
+    <h2>Arcana: <em>A responsive site template freebie by <a href="http://html5up.net">HTML5 UP</a></em></h2>
+    <a href="#" class="button">Learn More</a>
+  </header>
+</section>
+{% endif %}
+
+<!-- Posts -->
+<section class="wrapper style1">
+  <div class="container">
+    <div class="row">
+      {% for post in paginator.posts %}
+        <section class="6u 12u(narrower)">
+          <div class="box post">
+            <a href="{{ post.url }}" class="image left"><img src="{{site.url}}/images/pic01.jpg" alt="" /></a>
+            <div class="inner">
+              <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+              <p>{{ post.excerpt }}</p>
+            </div>
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination links -->
+    <section class="special">
+      {% if paginator.total_pages > 1 %}
+      <div class="pagination">
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+        {% else %}
+          <span>&laquo; Prev</span>
+        {% endif %}
+
+        {% for page in (1..paginator.total_pages) %}
+          {% if page == paginator.page %}
+            <strong>{{ page }}</strong>
+          {% elsif page == 1 %}
+            <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+          {% else %}
+            <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+          {% endif %}
+        {% endfor %}
+
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+        {% else %}
+          <span>Next &raquo;</span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </section>
+  </div>
+</section>

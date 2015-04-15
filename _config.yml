@@ -8,8 +8,9 @@ baseurl: ''
 highlighter: pygments
 
 # Personal Jekyll Config
+exclude: [vendor,script]
 timezone: America/New_York
-paginate: 5
+paginate: 10
 paginate_path: "/page:num/"
 sass:
     sass_dir: _sass
